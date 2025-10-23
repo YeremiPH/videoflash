@@ -1,0 +1,110 @@
+/* Estilos Generales */
+html {
+    scroll-behavior: smooth; /* Para que el scroll sea suave al hacer clic en los enlaces */
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Header y Navegación */
+.main-header {
+    background-color: #F9E04C; /* Color amarillo del header */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 5%;
+    position: sticky; /* Para que el menú se quede fijo arriba */
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.logo {
+    height: 40px; /* Ajusta el tamaño de tu logo */
+}
+
+.btn-contratar {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Sección Hero */
+.hero-section {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: white;
+}
+
+.main-title {
+    font-size: 4.5rem;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.main-title .highlight {
+    color: #F9E04C;
+    /* Efecto de borde negro para el texto amarillo */
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+
+.hero-image-container {
+    position: relative;
+    display: inline-block;
+    background-color: #3a3a3a; /* Fondo gris oscuro detrás de la imagen */
+    padding: 25px;
+    border-radius: 25px;
+    max-width: 900px;
+    width: 90%;
+}
+
+.hero-image-container img {
+    max-width: 100%;
+    display: block;
+    border-radius: 15px;
+}
+
+.btn-ver-mas {
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #F9E04C;
+    color: #000;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Secciones de Relleno (para el ejemplo) */
+.placeholder-section {
+    height: 100vh; /* Ocupan toda la altura de la pantalla para ver el efecto de scroll */
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
