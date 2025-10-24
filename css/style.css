@@ -100,7 +100,8 @@ body {
 .hero-image-container img {
     max-width: 85%;
     display: block;
-    border-radius: 15px 12px 0% 0%; /* Bordes redondeados en la parte superior */
+    margin: 0 auto; /* <-- AÑADE ESTA LÍNEA PARA CENTRAR LA IMAGEN */
+    border-radius: 15px; /* Ajustado para que todas las esquinas sean redondeadas */
     position: relative; /* Asegura que la imagen esté por encima de la forma gris */
     z-index: 1;
     box-shadow: 0 8px 25px rgba(0,0,0,0.25); /* Sombra para dar profundidad */
