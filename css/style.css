@@ -70,24 +70,45 @@ body {
     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 }
 
+/* --- INICIO DE LA CORRECCIÓN --- */
+
 .hero-image-container {
-    position: relative;
+    position: relative; /* Necesario para posicionar elementos hijos de forma absoluta */
     display: inline-block;
-    background-color: #3a3a3a; /* Fondo gris oscuro detrás de la imagen */
-    padding: 25px;
-    border-radius: 25px;
     max-width: 900px;
     width: 90%;
+    margin-top: 20px;
+    /* Eliminamos el fondo y el padding de aquí */
+}
+
+/* Este es el nuevo pseudo-elemento que crea la forma gris */
+.hero-image-container::before {
+    content: '';
+    position: absolute;
+    background-color: #3a3a3a; /* El color gris oscuro */
+    border-radius: 35px; /* Bordes redondeados */
+    z-index: 0; /* Se asegura que esté detrás de la imagen */
+    
+    /* Dimensiones y posición para que sobresalga */
+    width: 108%; /* Un poco más ancho que la imagen */
+    height: 65%; /* Altura parcial, como en el diseño */
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra la forma perfectamente */
 }
 
 .hero-image-container img {
-    max-width: 100%;
+    max-width: 85%;
     display: block;
-    border-radius: 15px;
+    border-radius: 15px 12px 0% 0%; /* Bordes redondeados en la parte superior */
+    position: relative; /* Asegura que la imagen esté por encima de la forma gris */
+    z-index: 1;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25); /* Sombra para dar profundidad */
 }
 
 .btn-ver-mas {
     position: absolute;
+    z-index: 2; /* Por encima de todo lo demás */
     bottom: 45px;
     left: 50%;
     transform: translateX(-50%);
