@@ -85,23 +85,23 @@ body {
 .hero-image-container::before {
     content: '';
     position: absolute;
-    background-color: #3a3a3a; /* El color gris oscuro */
+    background-color: #b2b2b2; /* El color gris */
     border-radius: 35px; /* Bordes redondeados */
     z-index: 0; /* Se asegura que esté detrás de la imagen */
     
-    /* Dimensiones y posición para que sobresalga */
+    /* --- NUEVA POSICIÓN --- */
     width: 108%; /* Un poco más ancho que la imagen */
-    height: 65%; /* Altura parcial, como en el diseño */
-    top: 68%;
+    height: 50%; /* La altura que tendrá la forma, desde abajo hacia arriba */
+    bottom: 0;   /* <-- ALINEA EL BORDE INFERIOR DE LA FORMA CON EL BORDE INFERIOR DEL CONTENEDOR */
     left: 50%;
-    transform: translate(-50%, -50%); /* Centra la forma perfectamente */
+    transform: translateX(-50%); /* Centra solo horizontalmente */
 }
 
 .hero-image-container img {
     max-width: 85%;
     display: block;
     margin: 0 auto; /* <-- AÑADE ESTA LÍNEA PARA CENTRAR LA IMAGEN */
-    border-radius: 15px; /* Ajustado para que todas las esquinas sean redondeadas */
+    border-radius: 15px 15px 0px 0px; /* Ajustado para que todas las esquinas sean redondeadas */
     position: relative; /* Asegura que la imagen esté por encima de la forma gris */
     z-index: 1;
     box-shadow: 0 8px 25px rgba(0,0,0,0.25); /* Sombra para dar profundidad */
