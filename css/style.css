@@ -365,18 +365,25 @@ body {
     margin-bottom: 25px;
 }
 
+.passion-content p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1em;
+}
 
-/* --- SECCIÓN "TESTIMONIOS" --- */
+/* --- SECCIÓN "TESTIMONIOS" (NUEVO ESTILO DE CARRUSEL) --- */
 
 .testimonials-section {
-    padding: 80px 5%;
-    background-color: #f0f0f0; /* Fondo gris claro */
+    padding: 80px 0;
+    background-color: #f0f0f0;
+    overflow: hidden;
 }
 
 .testimonials-header {
     text-align: center;
     max-width: 700px;
     margin: 0 auto 50px auto;
+    padding: 0 20px;
 }
 
 .testimonials-header h2 {
@@ -391,17 +398,26 @@ body {
 }
 
 .testimonials-wrapper {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+}
+
+.testimonials-carousel {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo del carrusel */
 }
 
 .testimonials-container {
     display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
+    align-items: center; /* Centra las tarjetas verticalmente */
+}
+
+/* AÑADIMOS UNA NUEVA CLASE PARA LA TRANSICIÓN */
+.testimonials-container.transition-on {
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1); /* Animación suave */
 }
 
 .testimonial-card {
@@ -409,10 +425,21 @@ body {
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
-    max-width: 320px;
+    text-align: left;
+    flex-shrink: 0;
+    width: 320px;
+    margin: 0 15px; /* Espacio entre tarjetas */
     display: flex;
     flex-direction: column;
-    text-align: left;
+    transform: scale(0.85); /* Las tarjetas no activas son más pequeñas */
+    opacity: 0.5; /* Y más transparentes */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.testimonial-card.active {
+    transform: scale(1); /* La tarjeta activa recupera su tamaño y opacidad */
+    opacity: 1;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
 }
 
 .rating {
@@ -424,7 +451,7 @@ body {
 .testimonial-text {
     color: #666;
     line-height: 1.6;
-    flex-grow: 1; /* Empuja el autor hacia abajo */
+    flex-grow: 1;
     margin-bottom: 25px;
     font-style: italic;
 }
@@ -463,4 +490,11 @@ body {
     cursor: pointer;
     font-weight: bold;
     padding: 10px;
+    user-select: none;
+    /* No usamos position: absolute aquí */
+}
+
+.testimonial-arrow.disabled {
+    opacity: 0.3;
+    cursor: default;
 }
