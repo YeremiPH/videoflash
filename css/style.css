@@ -125,8 +125,53 @@ body {
 
 /* Secciones de Relleno (para el ejemplo) */
 .placeholder-section {
-    height: 100vh; /* Ocupan toda la altura de la pantalla para ver el efecto de scroll */
+    height: 100vh;
     padding: 60px 20px;
     text-align: center;
     border-top: 1px solid #eee;
+}
+
+/* --- SECCIÓN "NOSOTROS" --- */
+
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 100px 5%;
+    background-color: #fff;
+    flex-wrap: wrap; /* Para que se adapte en pantallas pequeñas */
+}
+
+.about-content {
+    flex: 1;
+    max-width: 450px;
+}
+
+.about-content h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.about-visual {
+    flex: 1;
+    max-width: 500px;
+    text-align: center; /* Centra la imagen */
+}
+
+.about-image img {
+    max-width: 350px; /* Ajusta el tamaño de la imagen */
+    margin-bottom: 30px;
+}
+
+.about-text {
+    text-align: left; /* Alinea el texto de los párrafos a la izquierda */
+    color: #555;
+    line-height: 1.7;
+}
+
+.about-text p {
+    margin-bottom: 1em;
 }
