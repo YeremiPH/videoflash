@@ -85,7 +85,7 @@ body {
 .hero-image-container::before {
     content: '';
     position: absolute;
-    background-color: #b2b2b2; /* El color gris */
+    background-color: #969595; /* El color gris */
     border-radius: 35px; /* Bordes redondeados */
     z-index: 0; /* Se asegura que esté detrás de la imagen */
     
