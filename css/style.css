@@ -67,7 +67,7 @@ body {
 .btn-contratar {
     /* Posicionamos el botón de forma absoluta a la derecha */
     position: absolute;
-    right: 5%; /* Lo alineamos con el padding de la página */
+    right: 24%; /* Lo alineamos con el padding de la página */
     top: 50%;
     transform: translateY(-50%); /* Lo centramos verticalmente */
 
