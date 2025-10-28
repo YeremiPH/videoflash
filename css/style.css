@@ -4,50 +4,82 @@ html {
 }
 
 body {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
-    font-family: sans-serif;
     background-color: #fff;
     color: #333;
 }
 
+/* --- REEMPLAZA TODO EL BLOQUE "Header y Navegación" CON ESTO --- */
+
 /* Header y Navegación */
 .main-header {
-    background-color: #F9E04C; /* Color amarillo del header */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    background-color: #F9E04C; /* Fondo amarillo */
     padding: 10px 5%;
-    position: sticky; /* Para que el menú se quede fijo arriba */
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil */
 }
 
 .main-nav {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
 }
 
 .main-nav a {
     text-decoration: none;
-    color: #000;
-    font-weight: bold;
-    font-size: 16px;
+    color: #000; /* Texto negro */
+    font-weight: 600; /* Un poco más grueso */
+    font-size: 1rem;
+    padding: 5px 0;
+    position: relative;
+}
+
+/* Línea animada debajo de los links */
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
 }
 
 .logo {
-    height: 40px; /* Ajusta el tamaño de tu logo */
+    height: 40px; /* Ajustamos el tamaño del logo */
+    display: block;
+}
+
+/* El logo no necesita la animación de línea */
+.main-nav a:has(.logo)::after {
+    display: none;
 }
 
 .btn-contratar {
-    background-color: #000;
-    color: #fff;
-    padding: 10px 25px;
-    border-radius: 20px;
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    padding: 12px 28px;
+    border-radius: 25px; /* Bordes redondeados */
     text-decoration: none;
     font-weight: bold;
+    border: none; /* Quitamos el borde anterior */
+    transition: transform 0.2s ease;
 }
+
+.btn-contratar:hover {
+    transform: scale(1.05);
+}
+
+/* --- FIN DEL REEMPLAZO --- */
+
 
 /* Sección Hero */
 .hero-section {
