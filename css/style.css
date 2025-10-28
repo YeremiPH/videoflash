@@ -14,13 +14,13 @@ body {
 
 /* Header y Navegación */
 .main-header {
-    background-color: #F9E04C; /* Fondo amarillo */
+    background-color: #F9E04C;
     padding: 10px 5%;
     display: flex;
-    justify-content: center; /* <-- CAMBIA 'space-between' POR 'center' */
+    justify-content: center; /* Centra el contenido principal (la navegación) */
     align-items: center;
-    gap: 40px; /* <-- AÑADE UN ESPACIO ENTRE LA NAVEGACIÓN Y EL BOTÓN */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative; /* Necesario para posicionar el botón de forma absoluta */
 }
 
 .main-nav {
@@ -31,8 +31,8 @@ body {
 
 .main-nav a {
     text-decoration: none;
-    color: #000; /* Texto negro */
-    font-weight: 600; /* Un poco más grueso */
+    color: #000;
+    font-weight: 600;
     font-size: 1rem;
     padding: 5px 0;
     position: relative;
@@ -55,7 +55,7 @@ body {
 }
 
 .logo {
-    height: 40px; /* Ajustamos el tamaño del logo */
+    height: 40px;
     display: block;
 }
 
@@ -65,18 +65,24 @@ body {
 }
 
 .btn-contratar {
-    background-color: #000; /* Fondo negro */
-    color: #fff; /* Texto blanco */
+    /* Posicionamos el botón de forma absoluta a la derecha */
+    position: absolute;
+    right: 5%; /* Lo alineamos con el padding de la página */
+    top: 50%;
+    transform: translateY(-50%); /* Lo centramos verticalmente */
+
+    background-color: #000;
+    color: #fff;
     padding: 12px 28px;
-    border-radius: 25px; /* Bordes redondeados */
+    border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
-    border: none; /* Quitamos el borde anterior */
+    border: none;
     transition: transform 0.2s ease;
 }
 
 .btn-contratar:hover {
-    transform: scale(1.05);
+    transform: translateY(-50%) scale(1.05); /* Ajustamos el hover */
 }
 
 /* --- FIN DEL REEMPLAZO --- */
