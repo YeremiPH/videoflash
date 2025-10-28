@@ -17,8 +17,9 @@ body {
     background-color: #F9E04C; /* Fondo amarillo */
     padding: 10px 5%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* <-- CAMBIA 'space-between' POR 'center' */
     align-items: center;
+    gap: 40px; /* <-- AÑADE UN ESPACIO ENTRE LA NAVEGACIÓN Y EL BOTÓN */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil */
 }
 
