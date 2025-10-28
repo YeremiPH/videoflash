@@ -194,6 +194,11 @@ body {
     margin: 0;
 }
 
+.about-content .highlight-yellow {
+    color: #F9E04C;
+}
+
+
 .about-visual {
     flex: 1;
     max-width: 500px;
