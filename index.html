@@ -35,7 +35,7 @@
       <section id="nosotros" class="about-section">
         <div class="about-content">
           <h2>
-            Más que <span class="highlight-yellow
+            Más que edición, <span class="highlight-yellow">es</span><br />darle
             vida a tus ideas
           </h2>
         </div>
@@ -313,52 +313,49 @@
           </p>
           <p>Cuéntanos qué necesitas y lo haremos realidad.</p>
           <div class="contact-details">
-          <span>📞 +51 962 335 140</span>
-          <span>📧 videoflashcusco@gmail.com</span>
-        </div>
-
-        <!-- MODIFICA EL FORMULARIO PARA USAR JAVASCRIPT -->
-        <form id="contact-form" class="contact-form">
-          <!-- Los campos ocultos se quedan igual -->
-          <input type="hidden" name="_captcha" value="false" />
-          <input
-            type="hidden"
-            name="_next"
-            value="https://yeremiph.github.io/videoflash/" <!-- CORRIGE ESTA LÍNEA -->
-          />
-          <input
-            type="hidden"
-            name="_subject"
-            value="Nuevo Mensaje desde tu Web VideoFlash {{name}}"
-          />
-
-          <input
-            type="text"
-            name="name"
-            placeholder="Nombres y Apellidos"
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Correo Electronico"
-            required
-          />
-          <textarea
-            name="message"
-            placeholder="Mensaje"
-            rows="5"
-            required
-          ></textarea>
-          <div class="form-consent">
-            <input type="checkbox" id="consent" name="consent" required />
-            <label for="consent"
-              >He leído y acepto el aviso Legal y la política de
-              privacidad</label
-            >
+            <span>📞 +51 962 335 140</span>
+            <span>📧 videoflashcusco@gmail.com</span>
           </div>
-          <button type="submit" class="btn-enviar">Enviar &rarr;</button>
-        </form>
+
+          <form id="contact-form" class="contact-form">
+            <input type="hidden" name="_captcha" value="false" />
+            <input
+              type="hidden"
+              name="_next"
+              value="https://yeremiph.github.io/videoflash/"
+            />
+            <input
+              type="hidden"
+              name="_subject"
+              value="Nuevo Mensaje desde VideoFlash {{name}}"
+            />
+            <input
+              type="text"
+              name="name"
+              placeholder="Nombres y Apellidos"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Correo Electronico"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Mensaje"
+              rows="5"
+              required
+            ></textarea>
+            <div class="form-consent">
+              <input type="checkbox" id="consent" name="consent" required />
+              <label for="consent"
+                >He leído y acepto el aviso Legal y la política de
+                privacidad</label
+              >
+            </div>
+            <button type="submit" class="btn-enviar">Enviar &rarr;</button>
+          </form>
         </div>
       </section>
 
