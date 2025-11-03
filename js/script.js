@@ -71,24 +71,23 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('resize', () => updateCarousel(false));
     }
 
-    // --- LÓGICA DEL FORMULARIO DE CONTACTO ---
+    // --- LÓGICA DEL FORMULARIO DE CONTACTO (ACTUALIZADA) ---
     const form = document.getElementById('contact-form');
     
     if (form) {
         form.addEventListener('submit', function(e) {
-            e.preventDefault(); // Evita que la página se recargue
+            e.preventDefault();
 
             const formData = new FormData(form);
             const button = form.querySelector('button[type="submit"]');
+            const originalButtonText = button.innerHTML;
             
-            // Añade un span para el spinner si no existe
             if (!button.querySelector('.spinner')) {
                 const spinner = document.createElement('span');
                 spinner.className = 'spinner';
                 button.appendChild(spinner);
             }
 
-            // Inicia la animación
             button.classList.add('sending');
             button.disabled = true;
 
@@ -103,23 +102,29 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => {
                 if (response.ok) {
-                    // Si el envío es exitoso, redirige a la página de "gracias"
-                    window.location.href = form.querySelector('[name="_next"]').value;
-                } else {
-                    // Si hay un error, lo muestra y restaura el botón
-                    response.json().then(data => {
-                        console.error('Error del servidor:', data);
-                        alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
-                        button.classList.remove('sending');
+                    // Éxito: Transforma el botón en un check
+                    form.reset();
+                    button.classList.remove('sending');
+                    button.classList.add('success');
+                    button.innerHTML = '✓'; // Muestra el check
+
+                    // Restaura el botón después de 3 segundos
+                    setTimeout(() => {
+                        button.classList.remove('success');
+                        button.innerHTML = originalButtonText;
                         button.disabled = false;
-                    });
+                    }, 3000);
+
+                } else {
+                    throw new Error('Hubo un problema con la respuesta del servidor.');
                 }
             })
             .catch(error => {
-                // Si hay un error de red, lo muestra y restaura el botón
-                console.error('Error de red:', error);
-                alert('No se pudo enviar el mensaje. Revisa tu conexión a internet.');
+                console.error('Error al enviar el formulario:', error);
+                alert('No se pudo enviar el mensaje. Por favor, inténtalo de nuevo.');
+                // Restaura el botón en caso de error
                 button.classList.remove('sending');
+                button.innerHTML = originalButtonText;
                 button.disabled = false;
             });
         });

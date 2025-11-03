@@ -677,6 +677,20 @@ body {
     }
 }
 
+/* --- AÑADE ESTOS ESTILOS PARA EL BOTÓN DE ÉXITO --- */
+
+/* Cuando el envío es exitoso */
+.btn-enviar.success {
+    background-color: #28a745; /* Color verde de éxito */
+    color: #fff;
+    font-size: 1.5rem; /* Hace el check más grande */
+    pointer-events: none; /* Desactiva clics en estado de éxito */
+}
+
+.btn-enviar.success .spinner {
+    display: none; /* Oculta el spinner en estado de éxito */
+}
+
 /* --- SECCIÓN FOOTER --- */
 
 .main-footer-section {
@@ -795,4 +809,18 @@ body {
     to {
         transform: translate(-50%, -50%) rotate(360deg);
     }
+}
+
+/* --- AÑADE ESTOS ESTILOS PARA EL BOTÓN DE ÉXITO --- */
+
+/* Cuando el envío es exitoso */
+.btn-enviar.success {
+    background-color: #28a745; /* Color verde de éxito */
+    color: #fff;
+    font-size: 1.5rem; /* Hace el check más grande */
+    pointer-events: none; /* Desactiva clics en estado de éxito */
+}
+
+.btn-enviar.success .spinner {
+    display: none; /* Oculta el spinner en estado de éxito */
 }
