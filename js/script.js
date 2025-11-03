@@ -70,4 +70,58 @@ document.addEventListener('DOMContentLoaded', function() {
 
         window.addEventListener('resize', () => updateCarousel(false));
     }
+
+    // --- LÓGICA DEL FORMULARIO DE CONTACTO ---
+    const form = document.getElementById('contact-form');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita que la página se recargue
+
+            const formData = new FormData(form);
+            const button = form.querySelector('button[type="submit"]');
+            
+            // Añade un span para el spinner si no existe
+            if (!button.querySelector('.spinner')) {
+                const spinner = document.createElement('span');
+                spinner.className = 'spinner';
+                button.appendChild(spinner);
+            }
+
+            // Inicia la animación
+            button.classList.add('sending');
+            button.disabled = true;
+
+            const endpoint = 'https://formsubmit.co/videoflashcusco@gmail.com';
+
+            fetch(endpoint, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Si el envío es exitoso, redirige a la página de "gracias"
+                    window.location.href = form.querySelector('[name="_next"]').value;
+                } else {
+                    // Si hay un error, lo muestra y restaura el botón
+                    response.json().then(data => {
+                        console.error('Error del servidor:', data);
+                        alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+                        button.classList.remove('sending');
+                        button.disabled = false;
+                    });
+                }
+            })
+            .catch(error => {
+                // Si hay un error de red, lo muestra y restaura el botón
+                console.error('Error de red:', error);
+                alert('No se pudo enviar el mensaje. Revisa tu conexión a internet.');
+                button.classList.remove('sending');
+                button.disabled = false;
+            });
+        });
+    }
 });

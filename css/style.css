@@ -642,6 +642,39 @@ body {
     cursor: pointer;
     align-self: flex-start; /* Alinea el botón a la izquierda */
     font-size: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Estilo del spinner */
+.btn-enviar .spinner {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Cuando el botón está en modo "enviando" */
+.btn-enviar.sending {
+    color: transparent; /* Oculta el texto "Enviar" */
+    pointer-events: none; /* Desactiva clics mientras se envía */
+}
+
+.btn-enviar.sending .spinner {
+    display: block; /* Muestra el spinner */
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
 
 /* --- SECCIÓN FOOTER --- */
@@ -724,4 +757,42 @@ body {
 
 .social-icons a:hover img {
     filter: invert(100%); /* Pone los iconos blancos al pasar el mouse */
+}
+
+/* --- ANIMACIÓN PARA EL BOTÓN DE ENVIAR --- */
+
+.btn-enviar {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Estilo del spinner */
+.btn-enviar .spinner {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Cuando el botón está en modo "enviando" */
+.btn-enviar.sending {
+    color: transparent; /* Oculta el texto "Enviar" */
+    pointer-events: none; /* Desactiva clics mientras se envía */
+}
+
+.btn-enviar.sending .spinner {
+    display: block; /* Muestra el spinner */
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
