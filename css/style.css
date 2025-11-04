@@ -770,57 +770,98 @@ body {
 }
 
 .social-icons a:hover img {
-    filter: invert(100%); /* Pone los iconos blancos al pasar el mouse */
+    filter: invert(100%);
 }
 
-/* --- ANIMACIÓN PARA EL BOTÓN DE ENVIAR --- */
+/* --- ESTILOS RESPONSIVOS PARA MÓVILES --- */
+@media (max-width: 768px) {
 
-.btn-enviar {
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-/* Estilo del spinner */
-.btn-enviar .spinner {
-    display: none; /* Oculto por defecto */
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-top-color: #fff;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-/* Cuando el botón está en modo "enviando" */
-.btn-enviar.sending {
-    color: transparent; /* Oculta el texto "Enviar" */
-    pointer-events: none; /* Desactiva clics mientras se envía */
-}
-
-.btn-enviar.sending .spinner {
-    display: block; /* Muestra el spinner */
-}
-
-@keyframes spin {
-    to {
-        transform: translate(-50%, -50%) rotate(360deg);
+    /* --- Header --- */
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 5%;
     }
-}
 
-/* --- AÑADE ESTOS ESTILOS PARA EL BOTÓN DE ÉXITO --- */
+    .main-nav {
+        order: 2; /* Mueve la navegación debajo del botón */
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-/* Cuando el envío es exitoso */
-.btn-enviar.success {
-    background-color: #28a745; /* Color verde de éxito */
-    color: #fff;
-    font-size: 1.5rem; /* Hace el check más grande */
-    pointer-events: none; /* Desactiva clics en estado de éxito */
-}
+    .main-nav a {
+        font-size: 0.9rem;
+    }
 
-.btn-enviar.success .spinner {
-    display: none; /* Oculta el spinner en estado de éxito */
+    .logo {
+        height: 40px;
+    }
+
+    .btn-contratar {
+        position: static; /* Quita el posicionamiento absoluto */
+        transform: none;
+        order: 1; /* Mueve el botón arriba */
+        text-align: center;
+    }
+
+    /* --- Títulos y Fuentes --- */
+    .main-title {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem !important;
+    }
+
+    /* --- Secciones con Flexbox --- */
+    .about-section,
+    .passion-section,
+    .contact-section {
+        flex-direction: column;
+        gap: 40px;
+        padding: 60px 5%;
+    }
+
+    /* --- Proyectos --- */
+    .projects-grid {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+
+    /* --- Testimonios --- */
+    .testimonial-card {
+        width: 80vw; /* Usa el ancho de la pantalla */
+        max-width: 300px;
+    }
+
+    .testimonial-arrow {
+        display: none; /* Oculta las flechas en móvil para simplificar */
+    }
+
+    /* --- Contacto --- */
+    .contact-content {
+        text-align: center;
+    }
+
+    .contact-details {
+        justify-content: center;
+    }
+
+    .btn-enviar {
+        align-self: center; /* Centra el botón de enviar */
+    }
+
+    /* --- Footer --- */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
 }
