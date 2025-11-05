@@ -78,6 +78,31 @@ body {
     transform: scale(1.05);
 }
 
+/* --- AÑADE ESTOS ESTILOS PARA EL LOGO COMPUESTO --- */
+.header-logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-text {
+    display: none; /* Oculto en escritorio por defecto */
+    font-weight: 900;
+}
+
+.logo-video {
+    color: #000;
+    font-family: serif;
+    font-size: 1.5rem;
+}
+
+.logo-flash {
+    color: #F9E04C;
+    font-size: 1.5rem;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
 /* --- FIN DEL REEMPLAZO --- */
 
 /* --- ESTILOS PARA EL MENÚ HAMBURGUESA (AÑADIR ANTES DE MEDIA QUERIES) --- */
@@ -140,8 +165,14 @@ body {
         transform: translateX(-50%);
     }
 
+    /* --- AÑADE ESTA LÍNEA PARA MOSTRAR EL TEXTO DEL LOGO EN MÓVIL --- */
+    .logo-text {
+        display: block;
+    }
+
     .main-nav {
-        display: flex;
+        /* Ocultamos los enlaces de texto del nav de escritorio */
+        display: none;
         position: fixed;
         top: 0;
         left: 0;
@@ -159,7 +190,9 @@ body {
         padding-top: 60px;
     }
 
+    /* Mostramos el nav solo cuando el menú está abierto */
     .nav-open .main-nav {
+        display: flex; /* <-- CAMBIADO DE 'transform' a 'display' */
         transform: translateY(0);
     }
 
