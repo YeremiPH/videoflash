@@ -129,4 +129,22 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // --- LÓGICA PARA EL MENÚ MÓVIL ---
+    const navToggle = document.querySelector('.nav-toggle');
+    const body = document.body;
+    const navLinks = document.querySelectorAll('.main-nav a');
+
+    if (navToggle) {
+        navToggle.addEventListener('click', () => {
+            body.classList.toggle('nav-open');
+        });
+    }
+
+    // Cierra el menú al hacer clic en un enlace
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            body.classList.remove('nav-open');
+        });
+    });
 });

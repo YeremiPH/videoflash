@@ -12,15 +12,15 @@ body {
 
 /* --- REEMPLAZA TODO EL BLOQUE "Header y Navegación" CON ESTO --- */
 
-/* Header y Navegación */
+/* Header y Navegación (Escritorio) */
 .main-header {
     background-color: #F9E04C;
     padding: 10px 5%;
     display: flex;
-    justify-content: center; /* Centra el contenido principal (la navegación) */
+    justify-content: center;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: relative; /* Necesario para posicionar el botón de forma absoluta */
+    gap: 25px;
 }
 
 .main-nav {
@@ -38,7 +38,6 @@ body {
     position: relative;
 }
 
-/* Línea animada debajo de los links */
 .main-nav a::after {
     content: '';
     position: absolute;
@@ -55,22 +54,15 @@ body {
 }
 
 .logo {
-    height: 50px; /* <-- AUMENTA ESTE VALOR PARA AGRANDAR EL LOGO */
+    height: 50px;
     display: block;
 }
 
-/* El logo no necesita la animación de línea */
-.main-nav a:has(.logo)::after {
-    display: none;
+.header-logo-link {
+    order: 0; /* Orden por defecto */
 }
 
 .btn-contratar {
-    /* Posicionamos el botón de forma absoluta a la derecha */
-    position: absolute;
-    right: 24%; /* Lo alineamos con el padding de la página */
-    top: 50%;
-    transform: translateY(-50%); /* Lo centramos verticalmente */
-
     background-color: #000;
     color: #fff;
     padding: 12px 28px;
@@ -79,14 +71,135 @@ body {
     font-weight: bold;
     border: none;
     transition: transform 0.2s ease;
+    flex-shrink: 0;
 }
 
 .btn-contratar:hover {
-    transform: translateY(-50%) scale(1.05); /* Ajustamos el hover */
+    transform: scale(1.05);
 }
 
 /* --- FIN DEL REEMPLAZO --- */
 
+/* --- ESTILOS PARA EL MENÚ HAMBURGUESA (AÑADIR ANTES DE MEDIA QUERIES) --- */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    display: block;
+    background-color: #000;
+    height: 4px;
+    width: 30px;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before {
+    transform: translateY(-10px);
+}
+
+.hamburger::after {
+    transform: translateY(10px);
+}
+
+.nav-open .hamburger {
+    transform: rotate(45deg);
+}
+
+.nav-open .hamburger::before {
+    opacity: 0;
+}
+
+.nav-open .hamburger::after {
+    transform: translateY(-10px) rotate(-90deg);
+}
+
+/* --- ESTILOS RESPONSIVOS (REEMPLAZAR EL BLOQUE @media) --- */
+@media (max-width: 992px) {
+    .main-header {
+        justify-content: space-between;
+        position: relative; /* Necesario para centrar el logo */
+    }
+
+    .nav-toggle {
+        display: block;
+        order: -1; /* Pone el botón de hamburguesa al principio */
+    }
+
+    .header-logo-link {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .main-nav {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(249, 224, 76, 0.98);
+        backdrop-filter: blur(5px);
+        transform: translateY(-100%);
+        transition: transform 0.4s cubic-bezier(0.7, 0, 0.2, 1);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        z-index: 1000;
+        padding-top: 60px;
+    }
+
+    .nav-open .main-nav {
+        transform: translateY(0);
+    }
+
+    .main-nav a {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .main-nav a::after {
+        display: none;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    .btn-contratar {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    /* Ocultar el logo del menú desplegable si ya está en el header */
+    .main-nav .header-logo-link {
+        display: none;
+    }
+
+    /* --- Resto de estilos responsivos --- */
+    .main-title { font-size: 3rem; }
+    h2 { font-size: 2rem !important; }
+    .about-section, .passion-section, .contact-section { flex-direction: column; gap: 40px; padding: 60px 5%; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .testimonial-card { width: 80vw; max-width: 300px; }
+    .testimonial-arrow { display: none; }
+    .contact-content { text-align: center; }
+    .contact-details { justify-content: center; }
+    .btn-enviar { align-self: center; }
+    .footer-container { flex-direction: column; text-align: center; }
+    .footer-links { grid-template-columns: 1fr; }
+    .social-icons { justify-content: center; }
+}
 
 /* Sección Hero */
 .hero-section {
