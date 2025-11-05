@@ -147,16 +147,17 @@ body {
     transform: translateY(-10px) rotate(-90deg);
 }
 
-/* --- ESTILOS RESPONSIVOS (REEMPLAZAR EL BLOQUE @media) --- */
+/* --- REEMPLAZA TODO EL BLOQUE @media (max-width: 992px) CON ESTO --- */
 @media (max-width: 992px) {
     .main-header {
         justify-content: space-between;
-        position: relative; /* Necesario para centrar el logo */
+        position: relative; 
+        align-items: center; /* Asegura la alineación vertical */
     }
 
     .nav-toggle {
         display: block;
-        order: -1; /* Pone el botón de hamburguesa al principio */
+        order: -1; 
     }
 
     .header-logo-link {
@@ -164,41 +165,45 @@ body {
         left: 50%;
         transform: translateX(-50%);
     }
-
-    /* --- AÑADE ESTA LÍNEA PARA MOSTRAR EL TEXTO DEL LOGO EN MÓVIL --- */
+    
     .logo-text {
         display: block;
     }
 
+    /* --- ESTILOS DEL MENÚ DESPLEGABLE --- */
     .main-nav {
-        /* Ocultamos los enlaces de texto del nav de escritorio */
         display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(249, 224, 76, 0.98);
-        backdrop-filter: blur(5px);
-        transform: translateY(-100%);
-        transition: transform 0.4s cubic-bezier(0.7, 0, 0.2, 1);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
+        position: absolute;
+        top: 11px;    /* <-- CAMBIO: Baja el menú para alinearlo con el contenido */
+        left: 100px; /* <-- CAMBIO: Lo mueve un poco más a la derecha para que no toque el botón */
+        width: auto;
         z-index: 1000;
-        padding-top: 60px;
+        flex-direction: column;
+        background-color: transparent;
+        padding: 0;
+        gap: 0;
     }
 
-    /* Mostramos el nav solo cuando el menú está abierto */
     .nav-open .main-nav {
-        display: flex; /* <-- CAMBIADO DE 'transform' a 'display' */
-        transform: translateY(0);
+        display: flex;
     }
 
+    /* --- ESTILOS DE LOS ENLACES DEL MENÚ --- */
     .main-nav a {
-        font-size: 1.5rem;
+        background-color: #000;
+        color: #fff;
+        padding: 12px 25px;
+        font-size: 1.1rem;
         font-weight: bold;
+        min-width: 86px;
+        text-align: left;
+        text-decoration: underline;
+        text-decoration-color: #fff;
+        text-underline-offset: 4px;
+    }
+
+    .main-nav a:hover {
+        background-color: #333;
     }
 
     .main-nav a::after {
@@ -214,12 +219,7 @@ body {
         font-size: 0.9rem;
     }
 
-    /* Ocultar el logo del menú desplegable si ya está en el header */
-    .main-nav .header-logo-link {
-        display: none;
-    }
-
-    /* --- Resto de estilos responsivos --- */
+    /* --- Resto de estilos responsivos (sin cambios) --- */
     .main-title { font-size: 3rem; }
     h2 { font-size: 2rem !important; }
     .about-section, .passion-section, .contact-section { flex-direction: column; gap: 40px; padding: 60px 5%; }
@@ -919,54 +919,40 @@ body {
     filter: invert(100%);
 }
 
-/* --- ESTILOS RESPONSIVOS PARA MÓVILES --- */
+/* --- REEMPLAZA TODO EL BLOQUE @media (max-width: 768px) CON ESTO --- */
 @media (max-width: 768px) {
+    /* --- Ajustes para móviles pequeños --- */
 
-    /* --- Header --- */
-    .main-header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 5%;
+    /* Ocultamos el texto del logo para dar más espacio */
+    .logo-text {
+        display: none;
     }
 
-    .main-nav {
-        order: 2; /* Mueve la navegación debajo del botón */
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .main-nav a {
-        font-size: 0.9rem;
-    }
-
+    /* Hacemos el logo un poco más pequeño */
     .logo {
-        height: 40px;
+        height: 35px;
     }
 
+    /* Ajustamos el padding del botón para que no sea tan grande */
     .btn-contratar {
-        position: static; /* Quita el posicionamiento absoluto */
-        transform: none;
-        order: 1; /* Mueve el botón arriba */
-        text-align: center;
+        padding: 6px 12px;
+        font-size: 0.8rem;
     }
 
     /* --- Títulos y Fuentes --- */
     .main-title {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     h2 {
-        font-size: 2rem !important;
+        font-size: 1.8rem !important;
     }
 
-    /* --- Secciones con Flexbox --- */
+    /* --- Secciones --- */
     .about-section,
     .passion-section,
     .contact-section {
-        flex-direction: column;
-        gap: 40px;
-        padding: 60px 5%;
+        padding: 50px 5%;
     }
 
     /* --- Proyectos --- */
@@ -976,38 +962,11 @@ body {
 
     /* --- Testimonios --- */
     .testimonial-card {
-        width: 80vw; /* Usa el ancho de la pantalla */
-        max-width: 300px;
+        width: 85vw; /* Usa el ancho de la pantalla */
+        max-width: none;
     }
 
     .testimonial-arrow {
-        display: none; /* Oculta las flechas en móvil para simplificar */
-    }
-
-    /* --- Contacto --- */
-    .contact-content {
-        text-align: center;
-    }
-
-    .contact-details {
-        justify-content: center;
-    }
-
-    .btn-enviar {
-        align-self: center; /* Centra el botón de enviar */
-    }
-
-    /* --- Footer --- */
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-links {
-        grid-template-columns: 1fr; /* Una sola columna */
-    }
-
-    .social-icons {
-        justify-content: center;
+        display: none; /* Oculta las flechas en móvil */
     }
 }
