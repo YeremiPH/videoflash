@@ -63,6 +63,43 @@ document.addEventListener('DOMContentLoaded', function() {
         nextBtn.addEventListener('click', () => shiftSlide(1));
         prevBtn.addEventListener('click', () => shiftSlide(-1));
 
+        /* --- INICIO DEL CÓDIGO PARA AUTO-SCROLL --- */
+
+        const AUTO_SCROLL_INTERVAL = 5000; // 5 segundos, puedes cambiarlo
+        let autoScrollTimer;
+
+        const startAutoScroll = () => {
+            // Limpiamos cualquier temporizador anterior para evitar que se acelere
+            clearInterval(autoScrollTimer);
+            autoScrollTimer = setInterval(() => {
+                shiftSlide(1); // Usamos la función existente para mover al siguiente
+            }, AUTO_SCROLL_INTERVAL);
+        };
+
+        const stopAutoScroll = () => {
+            clearInterval(autoScrollTimer);
+        };
+
+        // Reiniciamos el temporizador si el usuario navega manualmente
+        nextBtn.addEventListener('click', () => {
+            stopAutoScroll();
+            startAutoScroll();
+        });
+        prevBtn.addEventListener('click', () => {
+            stopAutoScroll();
+            startAutoScroll();
+        });
+
+        // Pausamos el carrusel cuando el ratón está encima
+        carousel.addEventListener('mouseenter', stopAutoScroll);
+        // Reanudamos el carrusel cuando el ratón se va
+        carousel.addEventListener('mouseleave', startAutoScroll);
+
+        // Iniciar el carrusel automático al cargar la página
+        startAutoScroll();
+
+        /* --- FIN DEL CÓDIGO PARA AUTO-SCROLL --- */
+
         // Inicialización
         setTimeout(() => {
             updateCarousel(false);
